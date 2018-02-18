@@ -20,8 +20,8 @@ class Contacto:
 	def setTelefono(self, telefono):
 		self.__telefono = telefono
 		
-if __name__ == "__main__":
-	uno = Contacto("Juan", "809243233")
-	print uno.getNombre
-	uno.setNombre("Juancito")
-	print uno.getNombre
+#if __name__ == "__main__":
+#	uno = Contacto("Juan", "809243233")
+#	print uno.getNombre
+#	uno.setNombre("Juancito")
+#	print uno.getNombre

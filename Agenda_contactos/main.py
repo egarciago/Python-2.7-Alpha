@@ -1,9 +1,9 @@
 import Contacto
 
-class main:		
+class Main:		
 	
 	if __name__ == "__main__":
-		print "Listo!"
-		uno = Contacto("Juan", "809243233")
-		#uno.setNombre("Juan")
-		print (uno.getNombre)
+		uno = Contacto.Contacto("Juan", "809243233")
+		print uno.getNombre
+		uno.setNombre("Juancito")
+		print uno.getNombre
