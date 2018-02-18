@@ -1,10 +1,12 @@
 import sys
 import AdministradorDeContactos
+import Contacto
 
 class InterfazUsuario:
 
 	def __init__(self):
 		"""Doc"""
+		self.administrador = AdministradorDeContactos.AdministradorDeContactos()
 
 	def panelPrincipal(self):
 		print "----------------------------------------------"
@@ -37,10 +39,25 @@ class InterfazUsuario:
 	def mostrarContactos(self):
 		"""Muestra todos los contactos de la lista"""
 		print "Lista de contactos"
+		contactos = self.administrador.contactos()
+		for con in contactos:
+			print str(con) #+ "||" + str(con.getTelefono)
 	
 	def agregarContacto(self):
 		"""Agrega un nuevo contacto a la lista"""
-		print "Se agrego un nuevo contacto a la lista!"
+		nombre = raw_input("Ingrese nombre >> ")
+		telefono = raw_input("Ingrese telefono >> ")
+		contacto = Contacto.Contacto(nombre,telefono)
+		self.administrador.agregar(contacto)
+		print "Se agrego " + nombre + "--" + telefono + " a la lista de contactos!" 
+		opcion = raw_input(">> Desea agregar otro contacto? Y: SI or N: NO")
+		if(opcion=="Y"):
+			agregarContacto()
+		elif(opcion=="N"):
+			self.panelPrincipal()
+		else:
+			print "opcion erronea...Saliendo del sistema."
+			sys.exit(1)
 
 	def editarContacto(self):
 		"""Modifica un contacto de la lista"""
