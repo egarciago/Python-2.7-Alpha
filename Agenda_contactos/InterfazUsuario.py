@@ -34,7 +34,7 @@ class InterfazUsuario:
 			sys.exit(0)
 		else:
 			print "OPCION ERRONEA, Intentelo de nuevo"
-			panelPrincipal()
+			self.panelPrincipal()
 
 	def mostrarContactos(self):
 		"""Muestra todos los contactos de la lista"""
@@ -52,7 +52,7 @@ class InterfazUsuario:
 		print "Se agrego " + nombre + "--" + telefono + " a la lista de contactos!" 
 		opcion = raw_input(">> Desea agregar otro contacto? Y: SI or N: NO")
 		if(opcion=="Y"):
-			agregarContacto()
+			self.agregarContacto()
 		elif(opcion=="N"):
 			self.panelPrincipal()
 		else:

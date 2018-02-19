@@ -17,7 +17,11 @@ class AdministradorDeContactos:
 		self.__contactos.append(contacto)
 
 	def agregarContacto(self, nombre, telefono):
-		self.__contactos.append({'Nombre': nombre, 'Telefono': telefono})
+		contacto = {
+			'Nombre': nombre, 
+			'Telefono': telefono
+		}
+		self.__contactos.append(contacto)
 	
 	def editar(self, id, contacto):
 		self.__contactos[id].setNombre(contacto.getNombre)
