@@ -9,12 +9,15 @@ class AdministradorDeContactos:
 	def contactos(self):
 		retorno = "vacia"
 		if (len(self.__contactos) > 0):
-			return self.__contactos
+			return [contacto for contacto in self.__contactos]
 		else:
 			return retorno
 
 	def agregar(self, contacto):
 		self.__contactos.append(contacto)
+
+	def agregarContacto(self, nombre, telefono):
+		self.__contactos.append({'Nombre': nombre, 'Telefono': telefono})
 	
 	def editar(self, id, contacto):
 		self.__contactos[id].setNombre(contacto.getNombre)

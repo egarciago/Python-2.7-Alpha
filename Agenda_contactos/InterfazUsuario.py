@@ -47,8 +47,8 @@ class InterfazUsuario:
 		"""Agrega un nuevo contacto a la lista"""
 		nombre = raw_input("Ingrese nombre >> ")
 		telefono = raw_input("Ingrese telefono >> ")
-		contacto = Contacto.Contacto(nombre,telefono)
-		self.administrador.agregar(contacto)
+		#contacto = Contacto.Contacto(nombre,telefono)
+		self.administrador.agregarContacto(nombre, telefono)
 		print "Se agrego " + nombre + "--" + telefono + " a la lista de contactos!" 
 		opcion = raw_input(">> Desea agregar otro contacto? Y: SI or N: NO")
 		if(opcion=="Y"):
