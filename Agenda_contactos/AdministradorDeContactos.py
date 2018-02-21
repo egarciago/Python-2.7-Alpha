@@ -23,4 +23,4 @@ class AdministradorDeContactos:
 		self.contactos.insert(id, contacto)
 		
 	def eliminar(self, idContacto):
-		self.contactos.remove(idContacto)
+		self.contactos.pop(idContacto)

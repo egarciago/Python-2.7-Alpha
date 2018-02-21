@@ -67,10 +67,14 @@ class InterfazUsuario:
 
 	def editarContacto(self):
 		"""Modifica un contacto de la lista"""
-		idContacto = int(raw_input())
-
-		self.admContactos.editar(idContacto)
+		idContacto = int(raw_input("- Ingrese la posicion del contacto >>"))
+		nombre = raw_input("Ingrese nombre >> ")
+		telefono = raw_input("Ingrese telefono >> ")
+		
+		self.admContactos.eliminar(idContacto)
+		self.admContactos.editar(idContacto, nombre, telefono)
 		print "Se modifico un contacto de la lista"
+		self.listarContactos()
 
 	def eliminarContacto(self):
 		"""Elimina un contacto de la lista"""
@@ -78,3 +82,4 @@ class InterfazUsuario:
 	
 		self.admContactos.eliminar(idContacto)
 		print "Se elimino un contacto de la lista"
+		self.listarContactos()
