@@ -1,27 +1,22 @@
 class Contacto:
 
 	def __init__(self, nombre, telefono):
-		self.__nombre = nombre
-		self.__telefono = telefono
+		self.nombre = nombre
+		self.telefono = telefono
 	
 	@property
 	def getNombre(self):
-		return self.__nombre
+		return self.nombre
 	
 	#@setNombre.setter	
 	def setNombre(self, nombre):
-		self.__nombre = nombre
+		self.nombre = nombre
 	
 	@property
 	def getTelefono(self):
-		return self.__telefono
+		return self.telefono
 	
 	#@setTelefono.setter
 	def setTelefono(self, telefono):
-		self.__telefono = telefono
-		
-#if __name__ == "__main__":
-#	uno = Contacto("Juan", "809243233")
-#	print uno.getNombre
-#	uno.setNombre("Juancito")
-#	print uno.getNombre
+		self.telefono = telefono
+	

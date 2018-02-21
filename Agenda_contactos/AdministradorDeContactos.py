@@ -3,29 +3,24 @@ import Contacto
 class AdministradorDeContactos:
 	
 	def __init__(self):
-		""" Doc """
-		self.__contactos = []
+		self.contactos = []
 
-	def contactos(self):
-		retorno = "vacia"
-		if (len(self.__contactos) > 0):
-			return [contacto for contacto in self.__contactos]
-		else:
-			return retorno
+	def listar(self):
+		return self.contactos	
 
-	def agregar(self, contacto):
-		self.__contactos.append(contacto)
-
-	def agregarContacto(self, nombre, telefono):
+	def agregar(self, nombre, telefono):
 		contacto = {
 			'Nombre': nombre, 
 			'Telefono': telefono
 		}
-		self.__contactos.append(contacto)
+		self.contactos.append(contacto)
 	
-	def editar(self, id, contacto):
-		self.__contactos[id].setNombre(contacto.getNombre)
-		self.__contactos[id].setTelefono(contacto.getTelefono)
+	def editar(self, id, nombre, telefono):
+		contacto = {
+			'Nombre': nombre, 
+			'Telefono': telefono
+		}
+		self.contactos.insert(id, contacto)
 		
-	def eliminar(self, contacto):
-		self.__contactos.remove(contacto)
+	def eliminar(self, idContacto):
+		self.contactos.remove(idContacto)
