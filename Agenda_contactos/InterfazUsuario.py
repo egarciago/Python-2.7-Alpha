@@ -46,7 +46,6 @@ class InterfazUsuario:
 				print str(contactos.index(contacto)) + str(contacto)
 		else:
 			print "Vacia!" 
-		self.panelPrincipal()
 	
 	def agregarContacto(self):
 		"""Agrega un nuevo contacto a la lista"""
@@ -74,7 +73,6 @@ class InterfazUsuario:
 		self.admContactos.eliminar(idContacto)
 		self.admContactos.editar(idContacto, nombre, telefono)
 		print "Se modifico un contacto de la lista"
-		self.listarContactos()
 
 	def eliminarContacto(self):
 		"""Elimina un contacto de la lista"""
@@ -82,4 +80,3 @@ class InterfazUsuario:
 	
 		self.admContactos.eliminar(idContacto)
 		print "Se elimino un contacto de la lista"
-		self.listarContactos()
