@@ -5,7 +5,6 @@ import Contacto
 class InterfazUsuario:
 
 	def __init__(self):
-		"""Doc"""
 		self.admContactos = AdministradorDeContactos.AdministradorDeContactos()
 
 	def panelPrincipal(self):
@@ -37,7 +36,6 @@ class InterfazUsuario:
 			self.panelPrincipal()
 
 	def listarContactos(self):
-		"""Muestra todos los contactos de la lista"""
 		print "Lista de contactos"
 		
 		contactos = self.admContactos.listar()
@@ -48,7 +46,6 @@ class InterfazUsuario:
 			print "Vacia!" 
 	
 	def agregarContacto(self):
-		"""Agrega un nuevo contacto a la lista"""
 		nombre = raw_input("Ingrese nombre >> ")
 		telefono = raw_input("Ingrese telefono >> ")
 		
@@ -65,7 +62,6 @@ class InterfazUsuario:
 			sys.exit(1)
 
 	def editarContacto(self):
-		"""Modifica un contacto de la lista"""
 		idContacto = int(raw_input("- Ingrese la posicion del contacto >>"))
 		nombre = raw_input("Ingrese nombre >> ")
 		telefono = raw_input("Ingrese telefono >> ")
@@ -75,7 +71,6 @@ class InterfazUsuario:
 		print "Se modifico un contacto de la lista"
 
 	def eliminarContacto(self):
-		"""Elimina un contacto de la lista"""
 		idContacto = int(raw_input())
 	
 		self.admContactos.eliminar(idContacto)

@@ -3,7 +3,7 @@ class AdministradorDeExcepciones(Exception):
 		Exception.__init__(self,*args, **kwargs)
 
 	def controlarErroresAlListar(self):
-		
+
 	def controlarErroresAlInsertar(self):
 
 	def controlarErroresAlEditar(self):
