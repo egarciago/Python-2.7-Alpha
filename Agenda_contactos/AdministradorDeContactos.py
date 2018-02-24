@@ -15,12 +15,13 @@ class AdministradorDeContactos:
 		}
 		self.contactos.append(contacto)
 	
-	def editar(self, id, nombre, telefono):
+	def editar(self, posicionContacto, nombre, telefono):
 		contacto = {
 			'Nombre': nombre, 
 			'Telefono': telefono
 		}
+		self.contactos.pop(posicionContacto)
 		self.contactos.insert(id, contacto)
 		
-	def eliminar(self, idContacto):
-		self.contactos.pop(idContacto)
+	def eliminar(self, posicionContacto):
+		self.contactos.pop(posicionContacto)

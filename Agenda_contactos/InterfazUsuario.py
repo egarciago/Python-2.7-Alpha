@@ -7,7 +7,14 @@ class InterfazUsuario:
 	def __init__(self):
 		self.admContactos = AdministradorDeContactos.AdministradorDeContactos()
 
-	def panelPrincipal(self):
+	
+	
+	def iniciar(self):
+		self.mostrarOpciones()
+		seleccion = self.ObtenerSeleccion()
+		self.ejecutarOpcionSeleccionada(seleccion)
+	
+	def mostrarOpciones(self):
 		print "----------------------------------------------"
 		print "--------------MENU PRINCIPAL------------------"
 		print "-----------1-Mostrar Contactos ---------------"
@@ -16,20 +23,21 @@ class InterfazUsuario:
 		print "-----------4-Eliminar contacto ---------------"
 		print "-----------5-Salir del sistema ---------------"
 		print "----------------------------------------------"
-		print ">>Escriba el numero de la opcion a seleccionar"
-		print "----------------------------------------------"
-		
-		opcion = int(raw_input())
-		if (opcion == 1):
+
+	def ObtenerSeleccion(self):
+		opcion = int(raw_input(">>Escriba el numero de la opcion a ejecutar: "))
+		return opcion
+	
+	def ejecutarOpcionSeleccionada(self, opcionSeleccionada):
+		if (opcionSeleccionada == 1):
 			self.listarContactos()
-		elif (opcion == 2):
+		elif (opcionSeleccionada == 2):
 			self.agregarContacto()
-		elif (opcion == 3):
+		elif (opcionSeleccionada == 3):
 			self.editarContacto()
-		elif (opcion == 4):
+		elif (opcionSeleccionada == 4):
 			self.eliminarContacto()
-		elif (opcion == 5):
-			print "Saliendo del sistema...Adios"
+		elif (opcionSeleccionada == 5):
 			sys.exit(0)
 		else:
 			print "OPCION ERRONEA, Intentelo de nuevo"
@@ -37,41 +45,26 @@ class InterfazUsuario:
 
 	def listarContactos(self):
 		print "Lista de contactos"
-		
 		contactos = self.admContactos.listar()
 		if (len(contactos) > 0):
 			for contacto in contactos:
 				print str(contactos.index(contacto)) + str(contacto)
-		else:
-			print "Vacia!" 
 	
 	def agregarContacto(self):
-		nombre = raw_input("Ingrese nombre >> ")
-		telefono = raw_input("Ingrese telefono >> ")
-		
-		self.admContactos.agregar(nombre, telefono)
-		print "Se agrego " + nombre + "--" + telefono + " a la lista de contactos!" 
-		
-		opcion = raw_input(">> Desea agregar otro contacto? Y: SI or N: NO")
-		if(opcion=="Y"):
-			self.agregarContacto()
-		elif(opcion=="N"):
-			self.panelPrincipal()
-		else:
-			print "opcion erronea...Saliendo del sistema."
-			sys.exit(1)
+		contacto = self.obtenerInformacionDelContacto()
+		self.admContactos.agregar(contacto.getNombre(), contacto.getTelefono()) 
 
 	def editarContacto(self):
-		idContacto = int(raw_input("- Ingrese la posicion del contacto >>"))
-		nombre = raw_input("Ingrese nombre >> ")
-		telefono = raw_input("Ingrese telefono >> ")
-		
-		self.admContactos.eliminar(idContacto)
-		self.admContactos.editar(idContacto, nombre, telefono)
-		print "Se modifico un contacto de la lista"
+		posicionDelContactoEnLaLista = int(raw_input("- Ingrese la posicion del contacto >> "))
+		contacto = self.obtenerInformacionDelContacto()
+		self.admContactos.editar(posicionEnLaLista, contacto.getNombre(), contacto.getTelefono())
 
 	def eliminarContacto(self):
-		idContacto = int(raw_input())
-	
-		self.admContactos.eliminar(idContacto)
-		print "Se elimino un contacto de la lista"
+		posicionDelContactoEnLaLista = int(raw_input())
+		self.admContactos.eliminar(posicionDelContactoEnLaLista)
+
+	def obtenerInformacionDelContacto(self):
+		nombre = raw_input("Ingrese nombre >> ")
+		telefono = raw_input("Ingrese telefono >> ")
+		contacto = Contacto.Contacto(nombre, telefono)
+		return contacto
