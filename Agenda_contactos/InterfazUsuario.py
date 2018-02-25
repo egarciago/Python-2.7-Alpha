@@ -7,8 +7,6 @@ class InterfazUsuario:
 	def __init__(self):
 		self.admContactos = AdministradorDeContactos.AdministradorDeContactos()
 
-	
-	
 	def iniciar(self):
 		self.mostrarOpciones()
 		seleccion = self.ObtenerSeleccion()
@@ -25,8 +23,11 @@ class InterfazUsuario:
 		print "----------------------------------------------"
 
 	def ObtenerSeleccion(self):
-		opcion = int(raw_input(">>Escriba el numero de la opcion a ejecutar: "))
-		return opcion
+		try:
+			opcion = int(raw_input(">>Escriba el numero de la opcion a ejecutar: "))
+			return opcion
+		except Exception:
+			print "Error de seleccion, elija una opcion valida"
 	
 	def ejecutarOpcionSeleccionada(self, opcionSeleccionada):
 		if (opcionSeleccionada == 1):
@@ -40,8 +41,7 @@ class InterfazUsuario:
 		elif (opcionSeleccionada == 5):
 			sys.exit(0)
 		else:
-			print "OPCION ERRONEA, Intentelo de nuevo"
-			self.panelPrincipal()
+			self.mostrarOpciones()
 
 	def listarContactos(self):
 		print "Lista de contactos"
@@ -55,16 +55,26 @@ class InterfazUsuario:
 		self.admContactos.agregar(contacto.getNombre(), contacto.getTelefono()) 
 
 	def editarContacto(self):
-		posicionDelContactoEnLaLista = int(raw_input("- Ingrese la posicion del contacto >> "))
+		posicion = self.obtenerPosicionDelContactoEnLaLista()
 		contacto = self.obtenerInformacionDelContacto()
-		self.admContactos.editar(posicionEnLaLista, contacto.getNombre(), contacto.getTelefono())
+		self.admContactos.editar(posicion, contacto.getNombre(), contacto.getTelefono())
 
 	def eliminarContacto(self):
-		posicionDelContactoEnLaLista = int(raw_input())
-		self.admContactos.eliminar(posicionDelContactoEnLaLista)
+		posicion = self.obtenerPosicionDelContactoEnLaLista()
+		self.admContactos.eliminar(posicion)
+
+	def obtenerPosicionDelContactoEnLaLista(self):
+		try:
+			posicion = int(raw_input("- Ingrese la posicion del contacto >> "))
+			return posicion
+		except Exception:
+			print "Posicion no encontrada."
 
 	def obtenerInformacionDelContacto(self):
-		nombre = raw_input("Ingrese nombre >> ")
-		telefono = raw_input("Ingrese telefono >> ")
-		contacto = Contacto.Contacto(nombre, telefono)
-		return contacto
+		try:
+			nombre = raw_input("Ingrese nombre >> ")
+			telefono = raw_input("Ingrese telefono >> ")
+			contacto = Contacto.Contacto(nombre, telefono)
+			return contacto
+		except Exception:
+			print "Error de ingreso de datos del contacto."
