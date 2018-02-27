@@ -52,13 +52,13 @@ class InterfazUsuario:
 	
 	def agregarContacto(self):
 		contacto = self.obtenerInformacionDelContacto()
-		self.admContactos.agregar(contacto.getNombre(), contacto.getTelefono()) 
+		self.admContactos.agregar(contacto) 
 
 	def editarContacto(self):
 		posicion = self.obtenerPosicionDelContactoEnLaLista()
 		contacto = self.obtenerInformacionDelContacto()
 		try:
-			self.admContactos.editar(posicion, contacto.getNombre(), contacto.getTelefono())
+			self.admContactos.editar(posicion, contacto)
 		except Exception as e:
 			print "Error al intentar editar contacto"
 
