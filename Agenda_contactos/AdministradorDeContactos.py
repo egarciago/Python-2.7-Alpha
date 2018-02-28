@@ -15,16 +15,21 @@ class AdministradorDeContactos:
 		}
 		self.contactos.append(nuevoContacto)
 	
-	def editar(self, posicionContacto, contacto):
-		nuevaInformacionDecontacto = {
-			'Nombre': contacto.getNombre(),
-			'Telefono': contacto.getTelefono()
+	def editar(self, nombreContacto, infoActualizada):
+		contactoActualizado = {
+			'Nombre': infoActualizada.getNombre(), 
+			'Telefono': infoActualizada.getTelefono()
 		}
-		self.contactos.pop(posicionContacto)
-		self.contactos.insert(id, nuevaInformacionDecontacto)
+		for contacto in self.contactos:
+			if (contacto['Nombre'] == str(nombreContacto)):
+				posicionContacto = self.contactos.index(contacto)
+				self.contactos[posicionContacto] = contactoActualizado 
 		
-	def eliminar(self, posicionContacto):
-		self.contactos.pop(posicionContacto)
+	def eliminar(self, nombreContacto):
+		for contacto in self.contactos:
+			if (contacto['Nombre'] == str(nombreContacto)):
+				posicionContacto = self.contactos.index(contacto)
+				self.contactos.pop(posicionContacto) 
 
 	def buscarContacto(self, nombre):
 		contactoEncontrado = {'Nombre': "No encontrado", 'Telefono': ""}

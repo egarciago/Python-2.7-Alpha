@@ -64,8 +64,8 @@ class InterfazUsuario:
 		print str(self.buscarContacto())
 
 	def buscarContacto(self):
-		contactoAbuscar = self.obtenerInformacionDelContacto()
-		contacto = self.admContactos.buscarContacto(contactoAbuscar.getNombre())
+		contactoAbuscar = self.obtenerNombreDelContacto()
+		contacto = self.admContactos.buscarContacto(contactoAbuscar)
 		return contacto
 		
 	def agregarContacto(self):
@@ -73,29 +73,25 @@ class InterfazUsuario:
 		self.admContactos.agregar(contacto) 
 
 	def editarContacto(self):
-		posicion = self.obtenerPosicionDelContactoEnLaLista()
-		contacto = self.obtenerInformacionDelContacto()
+		#posicion = self.obtenerPosicionDelContactoEnLaLista()
+		contacto = self.obtenerNombreDelContacto()
+		print "Favor incluya la nueva informacion"
+		contactoActualizado = self.obtenerInformacionDelContacto()
 		try:
-			self.admContactos.editar(posicion, contacto)
-		except Exception as e:
+			self.admContactos.editar(contacto, contactoActualizado)
+		except Exception:
 			print "Error al intentar editar contacto"
 
 	def eliminarContacto(self):
-		posicion = self.obtenerPosicionDelContactoEnLaLista()
+		nombre = self.obtenerNombreDelContacto()
 		try:
-			self.admContactos.eliminar(posicion)
+			self.admContactos.eliminar(nombre)
 		except Exception as e:
-			print "Error al intentar eliminar contacto"
+			print "Error al intentar eliminar contacto" + str(e)
 
-	def obtenerPosicionDelContactoEnLaLista(self):
-		try:
-			posicionSeleccionada = int(raw_input("- Ingrese la posicion del contacto >> "))
-			for contacto in self.contactos:
-				if(posicionSeleccionada == contacto.index()):
-					break
-					return posicion
-		except Exception:
-			print "Posicion no encontrada."
+	def obtenerNombreDelContacto(self):
+		nombre = raw_input("Ingrese nombre >> ")
+		return nombre
 
 	def obtenerInformacionDelContacto(self):
 		try:
