@@ -15,12 +15,13 @@ class InterfazUsuario:
 	
 	def mostrarOpciones(self):
 		print "----------------------------------------------"
-		print "--------------MENU PRINCIPAL------------------"
-		print "-----------1-Mostrar Contactos ---------------"
-		print "-----------2-Agregar nuevo*    ---------------"
-		print "-----------3-Editar existente  ---------------"
-		print "-----------4-Eliminar contacto ---------------"
-		print "-----------5-Salir del sistema ---------------"
+		print "-----------   MENU PRINCIPAL   ---------------"
+		print "-----------1-Mostrar contactos ---------------"
+		print "-----------2-Buscar contacto -----------------"
+		print "-----------3-Agregar nuevo*  -----------------"
+		print "-----------4-Editar existente  ---------------"
+		print "-----------5-Eliminar contacto ---------------"
+		print "-----------6-Salir del sistema ---------------"
 		print "----------------------------------------------"
 
 	def ObtenerSeleccion(self):
@@ -33,23 +34,38 @@ class InterfazUsuario:
 	def ejecutarOpcionSeleccionada(self, opcionSeleccionada):
 		if (opcionSeleccionada == 1):
 			self.listarContactos()
+			self.iniciar()
 		elif (opcionSeleccionada == 2):
-			self.agregarContacto()
+			self.mostrarResultadoDeBusqueda()
+			self.iniciar()
 		elif (opcionSeleccionada == 3):
-			self.editarContacto()
+			self.agregarContacto()
+			self.iniciar()
 		elif (opcionSeleccionada == 4):
-			self.eliminarContacto()
+			self.editarContacto()
+			self.iniciar()
 		elif (opcionSeleccionada == 5):
+			self.eliminarContacto()
+			self.iniciar()
+		elif (opcionSeleccionada == 6):
 			sys.exit(0)
 		else:
-			self.mostrarOpciones()
+			self.iniciar()
 
 	def listarContactos(self):
 		print "Lista de contactos"
 		if (len(self.contactos) > 0):
 			for contacto in self.contactos:
 				print str(self.contactos.index(contacto)) + str(contacto)
-	
+
+	def mostrarResultadoDeBusqueda(self):
+		print str(self.buscarContacto())
+
+	def buscarContacto(self):
+		informacionAbuscar = self.obtenerInformacionDelContacto()
+		self.admContactos.buscarContacto(informacionAbuscar)
+		return contacto
+		
 	def agregarContacto(self):
 		contacto = self.obtenerInformacionDelContacto()
 		self.admContactos.agregar(contacto) 

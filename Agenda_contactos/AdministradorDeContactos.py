@@ -9,21 +9,27 @@ class AdministradorDeContactos:
 		return self.contactos	
 
 	def agregar(self, contacto):
-		contactoDic = {
-			'Id': contacto.getId
-			'Nombre': contacto.getNombre, 
-			'Telefono': contacto.getTelefono
+		nuevoContacto = {
+			'Nombre': contacto.getNombre(), 
+			'Telefono': contacto.getTelefono()
 		}
-		self.contactos.append(contactoDic)
+		self.contactos.append(nuevoContacto)
 	
 	def editar(self, posicionContacto, contacto):
-		contactoDic = {
-			'Nombre': contacto.getNombre, 
-			'Telefono': contactogetTelefono
+		nuevaInformacionDecontacto = {
+			'Nombre': contacto.getNombre(),
+			'Telefono': contacto.getTelefono()
 		}
 		self.contactos.pop(posicionContacto)
-		self.contactos.insert(id, contactoDic)
+		self.contactos.insert(id, nuevaInformacionDecontacto)
 		
 	def eliminar(self, posicionContacto):
 		self.contactos.pop(posicionContacto)
+
+	def buscarContacto(self, contacto):
+		contactoEncontrado = {'Nombre': "Vacio", 'Telefono': "Vacio"}
+		for contacto in self.contactos:
+			if(contacto['Nombre'] == str(contacto.getNombre()) or contacto['Telefono'] == str(contacto.getTelefono())):
+				contactoEncontrado = self.contactos[posicion]
+		return contactoEncontrado
 

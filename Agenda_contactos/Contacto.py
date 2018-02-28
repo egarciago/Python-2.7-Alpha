@@ -1,16 +1,9 @@
 class Contacto:
 
-	def __init__(self, id, nombre, telefono):
-		self.id = id
+	def __init__(self, nombre, telefono):
 		self.nombre = nombre
 		self.telefono = telefono
-	
-	def getId(self):
-		return self.id
 
-	def setId(self, id):
-		self.id = id
-		
 	def getNombre(self):
 		return self.nombre
 	
@@ -22,4 +15,5 @@ class Contacto:
 	
 	def setTelefono(self, telefono):
 		self.telefono = telefono
+
 	
