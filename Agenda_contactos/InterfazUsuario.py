@@ -63,7 +63,7 @@ class InterfazUsuario:
 
 	def buscarContacto(self):
 		informacionAbuscar = self.obtenerInformacionDelContacto()
-		self.admContactos.buscarContacto(informacionAbuscar)
+		contacto = self.admContactos.buscarContacto(informacionAbuscar.getNombre())
 		return contacto
 		
 	def agregarContacto(self):

@@ -26,10 +26,10 @@ class AdministradorDeContactos:
 	def eliminar(self, posicionContacto):
 		self.contactos.pop(posicionContacto)
 
-	def buscarContacto(self, contacto):
+	def buscarContacto(self, nombre):
 		contactoEncontrado = {'Nombre': "Vacio", 'Telefono': "Vacio"}
 		for contacto in self.contactos:
-			if(contacto['Nombre'] == str(contacto.getNombre()) or contacto['Telefono'] == str(contacto.getTelefono())):
-				contactoEncontrado = self.contactos[posicion]
+			if(contacto['Nombre'] == str(nombre)):
+				contactoEncontrado = contacto
 		return contactoEncontrado
 
