@@ -27,7 +27,7 @@ class AdministradorDeContactos:
 		self.contactos.pop(posicionContacto)
 
 	def buscarContacto(self, nombre):
-		contactoEncontrado = {'Nombre': "Vacio", 'Telefono': "Vacio"}
+		contactoEncontrado = {'Nombre': "No encontrado", 'Telefono': ""}
 		for contacto in self.contactos:
 			if(contacto['Nombre'] == str(nombre)):
 				contactoEncontrado = contacto
