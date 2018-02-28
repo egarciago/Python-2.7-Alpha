@@ -54,9 +54,11 @@ class InterfazUsuario:
 
 	def listarContactos(self):
 		print "Lista de contactos"
-		if (len(self.contactos) > 0):
+		try:
 			for contacto in self.contactos:
-				print str(self.contactos.index(contacto)) + str(contacto)
+				print str(contacto)
+		except Exception:
+			print "Error al cargar lista de contactos"
 
 	def mostrarResultadoDeBusqueda(self):
 		print str(self.buscarContacto())
