@@ -37,4 +37,7 @@ class AdministradorDeContactos:
 			if(contacto['Nombre'] == str(nombre)):
 				contactoEncontrado = contacto
 		return contactoEncontrado
+	def ordenar(self, listaDeContactos):
+		for contacto in sort(self.contactos):
+			contacto['Nombre']
 

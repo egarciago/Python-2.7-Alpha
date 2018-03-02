@@ -15,8 +15,8 @@ class InterfazUsuario:
 	
 	def mostrarOpciones(self):
 		print "----------------------------------------------"
-		print "-----------   MENU PRINCIPAL   ---------------"
-		print "-----------1-Mostrar contactos ---------------"
+		print "-----------<  MENU PRINCIPAL  >---------------"
+		print "-----------1 Mostrar contactos ---------------"
 		print "-----------2-Buscar contacto -----------------"
 		print "-----------3-Agregar nuevo*  -----------------"
 		print "-----------4-Editar existente  ---------------"
@@ -55,7 +55,9 @@ class InterfazUsuario:
 	def listarContactos(self):
 		print "Lista de contactos"
 		try:
-			for contacto in self.contactos:
+			#sorted(self.contactos, key=str.lower)
+			#value for (key, value) in sorted(self.contactos.items()) 
+			for contacto in sorted(self.contactos):
 				print str(contacto)
 		except Exception:
 			print "Error al cargar lista de contactos"
