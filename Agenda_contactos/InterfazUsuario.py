@@ -55,8 +55,6 @@ class InterfazUsuario:
 	def listarContactos(self):
 		print "Lista de contactos"
 		try:
-			#sorted(self.contactos, key=str.lower)
-			#value for (key, value) in sorted(self.contactos.items()) 
 			for contacto in sorted(self.contactos):
 				print str(contacto)
 		except Exception:
@@ -72,8 +70,12 @@ class InterfazUsuario:
 		
 	def agregarContacto(self):
 		contacto = self.obtenerInformacionDelContacto()
-		self.admContactos.agregar(contacto) 
-
+		self.admContactos.agregar(contacto)
+		print "Desea agregar otro contacto? Y:si, N:no"
+		respuesta = raw_input(">> ")
+		if (respuesta=='Y'):
+			self.agregarContacto()
+		
 	def editarContacto(self):
 		#posicion = self.obtenerPosicionDelContactoEnLaLista()
 		contacto = self.obtenerNombreDelContacto()
