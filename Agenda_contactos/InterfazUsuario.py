@@ -5,8 +5,8 @@ import Contacto
 class InterfazUsuario:
 
 	def __init__(self):
-		self.admContactos = AdministradorDeContactos.AdministradorDeContactos()
-		self.contactos = self.admContactos.listar()
+		self.__admContactos = AdministradorDeContactos.AdministradorDeContactos()
+		self.__contactos = self.__admContactos.listar()
 
 	def iniciar(self):
 		self.mostrarOpciones()
@@ -55,7 +55,7 @@ class InterfazUsuario:
 	def listarContactos(self):
 		print "Lista de contactos"
 		try:
-			for contacto in sorted(self.contactos):
+			for contacto in sorted(self.__contactos):
 				print str(contacto)
 		except Exception:
 			print "Error al cargar lista de contactos"
@@ -65,14 +65,16 @@ class InterfazUsuario:
 
 	def buscarContacto(self):
 		contactoAbuscar = self.obtenerNombreDelContacto()
-		contacto = self.admContactos.buscarContacto(contactoAbuscar)
+		contacto = self.__admContactos.buscarContacto(contactoAbuscar)
 		return contacto
 		
 	def agregarContacto(self):
 		contacto = self.obtenerInformacionDelContacto()
-		self.admContactos.agregar(contacto)
+		self.__admContactos.agregar(contacto)
+		
 		print "Desea agregar otro contacto? Y:si, N:no"
 		respuesta = raw_input(">> ")
+		
 		if (respuesta=='Y'):
 			self.agregarContacto()
 		
@@ -82,14 +84,14 @@ class InterfazUsuario:
 		print "Favor incluya la nueva informacion"
 		contactoActualizado = self.obtenerInformacionDelContacto()
 		try:
-			self.admContactos.editar(contacto, contactoActualizado)
+			self.__admContactos.editar(contacto, contactoActualizado)
 		except Exception:
 			print "Error al intentar editar contacto"
 
 	def eliminarContacto(self):
 		nombre = self.obtenerNombreDelContacto()
 		try:
-			self.admContactos.eliminar(nombre)
+			self.__admContactos.eliminar(nombre)
 		except Exception as e:
 			print "Error al intentar eliminar contacto" + str(e)
 
