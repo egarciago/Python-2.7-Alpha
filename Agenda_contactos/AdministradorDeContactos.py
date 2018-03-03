@@ -8,6 +8,7 @@ class AdministradorDeContactos:
 		self.__serializadora = Serializadora.Serializadora()
 
 	def listar(self):
+		self.__contactos = self.__serializadora.leerArchivoDeDatos()
 		return self.__contactos	
 
 	def agregar(self, contacto):
@@ -42,7 +43,7 @@ class AdministradorDeContactos:
 			if(contacto['Nombre'] == str(nombre)):
 				contactoEncontrado = contacto
 		return contactoEncontrado
-		
+
 	def ordenar(self, listaDeContactos):
 		for contacto in sort(self.__contactos):
 			contacto['Nombre']
