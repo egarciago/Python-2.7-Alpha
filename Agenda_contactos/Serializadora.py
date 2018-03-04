@@ -8,7 +8,6 @@ class Serializadora:
 	def leerArchivoDeDatos(self):
 		archivo = open(self.path + self.__nombreDelArchivo,"r")
 		for linea in archivo:
-			#linea.rstrip('\n')
 			self.__lista.append(str(linea))
 		archivo.close()
 		return self.__lista	
@@ -16,13 +15,8 @@ class Serializadora:
 	def guardarEnArchivo(self, contactos):
 		archivo = open(self.path + self.__nombreDelArchivo,"w")
 		for contacto in contactos:
-			archivo.write(str(contacto))
+			if(contactos.index(contacto)>0):
+				archivo.write('{0}{1}'.format('\n', str(contacto)))
+			else:
+				archivo.write(str(contacto))
 		archivo.close()
-
-	def __verificarSiArchivoExiste(self):
-		encontrado = False
-		if (__nombreDelArchivo):
-			encontrado = True
-		return encontrado
-
-		

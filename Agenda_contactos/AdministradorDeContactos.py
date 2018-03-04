@@ -4,11 +4,14 @@ import Serializadora
 class AdministradorDeContactos:
 	
 	def __init__(self):
-		self.__contactos = []
 		self.__serializadora = Serializadora.Serializadora()
+		#self.CargarDatosDesdeArchivo()
+
+	def CargarDatosDesdeArchivo(self):
+		self.__contactos = self.__serializadora.leerArchivoDeDatos()
 
 	def listar(self):
-		self.__contactos = self.__serializadora.leerArchivoDeDatos()
+		self.CargarDatosDesdeArchivo() 
 		return self.__contactos	
 
 	def agregar(self, contacto):
