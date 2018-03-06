@@ -61,16 +61,19 @@ class InterfazUsuario:
 			print "Error al cargar lista de contactos"
 
 	def mostrarResultadoDeBusqueda(self):
-		print str(self.buscarContacto())
+		nombre = self.obtenerNombreDelContacto()
+		print str(self.buscarContacto(nombre))
 
-	def buscarContacto(self):
-		contactoAbuscar = self.obtenerNombreDelContacto()
-		contacto = self.__admContactos.buscarContacto(contactoAbuscar)
+	def buscarContacto(self, nombre):
+		contacto = self.__admContactos.buscarContacto(nombre)
 		return contacto
 		
 	def agregarContacto(self):
 		contacto = self.obtenerInformacionDelContacto()
-		self.__admContactos.agregar(contacto)
+		if (self.buscarContacto(str(contacto.getNombre()))):
+			print "Contacto existe"
+		else:
+			self.__admContactos.agregar(contacto)
 		
 		print "Desea agregar otro contacto? Y:si, N:no"
 		respuesta = raw_input(">> ")

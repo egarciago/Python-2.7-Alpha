@@ -5,7 +5,6 @@ class AdministradorDeContactos:
 	
 	def __init__(self):
 		self.__serializadora = Serializadora.Serializadora()
-		#self.CargarDatosDesdeArchivo()
 
 	def CargarDatosDesdeArchivo(self):
 		self.__contactos = self.__serializadora.leerArchivoDeDatos()
