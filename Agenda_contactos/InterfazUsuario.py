@@ -82,7 +82,6 @@ class InterfazUsuario:
 			self.agregarContacto()
 		
 	def editarContacto(self):
-		#posicion = self.obtenerPosicionDelContactoEnLaLista()
 		contacto = self.obtenerNombreDelContacto()
 		print "Favor incluya la nueva informacion"
 		contactoActualizado = self.obtenerInformacionDelContacto()
