@@ -14,8 +14,10 @@ class Algoritmos:
 
 	def mostrarSerieFibonnaci(self):
 		serieFibonnaci = self.serieFibonnaci(self.__entrada)
+		cadena = ""
 		for numero in serieFibonnaci:
-			print "{0}{1}".format(numero, ", ")
+			cadena +="{0}{1}".format(numero, ", ")
+		print cadena
 
 	def serieFibonnaci(self, tamanoSerie):
 		listaResultante = [0,1]
