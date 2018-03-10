@@ -13,17 +13,17 @@ class Algoritmos:
 		self.__entrada = int(raw_input("Ingrese tamano de la serieFibonnaci> "))
 
 	def mostrarSerieFibonnaci(self):
-		serieFibonnaci = self.serieFibonnaci(self.__entrada)
+		serieFibonnaci = self.generarSerieFibonnaci(self.__entrada)
 		cadena = ""
 		for numero in serieFibonnaci:
 			cadena +="{0}{1}".format(numero, ", ")
 		print cadena
 
-	def serieFibonnaci(self, tamanoSerie):
+	def generarSerieFibonnaci(self, tamanoSerie):
 		listaResultante = [0,1]
 	 	while(len(listaResultante) < tamanoSerie):
-	 		operacion = listaResultante[-2] + listaResultante[-1]
-	 		listaResultante.append(operacion)
+	 		fibonnaci = listaResultante[-2] + listaResultante[-1]
+	 		listaResultante.append(fibonnaci)
 	 	return listaResultante
 
 	def mostrarResultadoNumeroPrimo(self):
