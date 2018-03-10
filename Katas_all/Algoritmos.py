@@ -10,7 +10,7 @@ class Algoritmos:
 		self.mostrarSerieFibonnaci()
 
 	def solicitarNumero(self):
-		self.__entrada = int(raw_input("Ingrese tamano de la serieFibonnaci> "))
+		self.__entrada = int(raw_input(">> "))
 
 	def mostrarSerieFibonnaci(self):
 		serieFibonnaci = self.generarSerieFibonnaci(self.__entrada)
@@ -19,18 +19,18 @@ class Algoritmos:
 			cadena +="{0}{1}".format(numero, ", ")
 		print cadena
 
+	def mostrarResultadoNumeroPrimo(self):
+		if not self.verificarSiNumeroEsPrimo(self.__entrada):
+			print "{0}{1}".format(self.__entrada,": No es primo")
+		else:
+			print "{0}{1}".format(self.__entrada,": Es primo")
+
 	def generarSerieFibonnaci(self, tamanoSerie):
 		listaResultante = [0,1]
 	 	while(len(listaResultante) < tamanoSerie):
 	 		fibonnaci = listaResultante[-2] + listaResultante[-1]
 	 		listaResultante.append(fibonnaci)
 	 	return listaResultante
-
-	def mostrarResultadoNumeroPrimo(self):
-		if not self.verificarSiNumeroEsPrimo(entrada):
-			print "{0}: {1}".format(entrada,"No es primo")
-		else:
-			print "{0}: {1}".format(entrada,"Es primo")
 
 	def verificarSiNumeroEsPrimo(self, numero):
 		numerosDivisores = (2,3,5,7,11,13,17,19)
