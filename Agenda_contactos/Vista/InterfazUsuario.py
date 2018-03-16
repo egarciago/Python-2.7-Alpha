@@ -17,7 +17,7 @@ class InterfazUsuario:
 	def __mostrarOpciones(self):
 		print "----------------------------------------------"
 		print "-----------<  MENU PRINCIPAL  >---------------"
-		print "-----------1 Mostrar contactos ---------------"
+		print "-----------1-Mostrar contactos ---------------"
 		print "-----------2-Buscar contacto -----------------"
 		print "-----------3-Agregar nuevo*  -----------------"
 		print "-----------4-Editar existente  ---------------"
