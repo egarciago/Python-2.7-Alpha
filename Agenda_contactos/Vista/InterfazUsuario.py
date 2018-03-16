@@ -14,7 +14,7 @@ class InterfazUsuario:
 		seleccion = self.ObtenerSeleccion()
 		self.ejecutarOpcionSeleccionada(seleccion)
 	#Menu
-	def mostrarOpciones(self):
+	def __mostrarOpciones(self):
 		print "----------------------------------------------"
 		print "-----------<  MENU PRINCIPAL  >---------------"
 		print "-----------1 Mostrar contactos ---------------"
@@ -25,14 +25,14 @@ class InterfazUsuario:
 		print "-----------6-Salir del sistema ---------------"
 		print "----------------------------------------------"
 
-	def ObtenerSeleccion(self):
+	def __ObtenerSeleccion(self):
 		try:
 			opcion = int(raw_input(">>Escriba el numero de la opcion a ejecutar: "))
 			return opcion
 		except Exception:
 			print "Error de seleccion, elija una opcion valida"
 	
-	def ejecutarOpcionSeleccionada(self, opcionSeleccionada):
+	def __ejecutarOpcionSeleccionada(self, opcionSeleccionada):
 		if (opcionSeleccionada == 1):
 			self.listarContactos()
 			self.iniciar()
@@ -53,7 +53,7 @@ class InterfazUsuario:
 		else:
 			self.iniciar()
 
-	def listarContactos(self):
+	def __listarContactos(self):
 		print "Lista de contactos"
 		try:
 			for contacto in sorted(self.__contactos):
@@ -61,15 +61,15 @@ class InterfazUsuario:
 		except Exception:
 			print "Error al cargar lista de contactos"
 
-	def mostrarResultadoDeBusqueda(self):
+	def __mostrarResultadoDeBusqueda(self):
 		nombre = self.obtenerNombreDelContacto()
 		print str(self.buscarContacto(nombre))
 
-	def buscarContacto(self, nombre):
+	def __buscarContacto(self, nombre):
 		contacto = self.__admContactos.buscarContacto(nombre)
 		return contacto
 		
-	def agregarContacto(self):
+	def __agregarContacto(self):
 		contacto = self.obtenerInformacionDelContacto()
 		if (self.buscarContacto(str(contacto.getNombre()))):
 			print "Contacto existe"
@@ -82,7 +82,7 @@ class InterfazUsuario:
 		if (respuesta=='Y'):
 			self.agregarContacto()
 		
-	def editarContacto(self):
+	def __editarContacto(self):
 		contacto = self.obtenerNombreDelContacto()
 		print "Favor incluya la nueva informacion"
 		contactoActualizado = self.obtenerInformacionDelContacto()
@@ -91,18 +91,18 @@ class InterfazUsuario:
 		except Exception:
 			print "Error al intentar editar contacto"
 
-	def eliminarContacto(self):
+	def __eliminarContacto(self):
 		nombre = self.obtenerNombreDelContacto()
 		try:
 			self.__admContactos.eliminar(nombre)
 		except Exception as e:
 			print "Error al intentar eliminar contacto" + str(e)
 
-	def obtenerNombreDelContacto(self):
+	def __obtenerNombreDelContacto(self):
 		nombre = raw_input("Ingrese nombre >> ")
 		return nombre
 
-	def obtenerInformacionDelContacto(self):
+	def __obtenerInformacionDelContacto(self):
 		try:
 			nombre = raw_input("Ingrese nombre >> ")
 			telefono = raw_input("Ingrese telefono >> ")

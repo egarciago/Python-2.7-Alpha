@@ -6,7 +6,7 @@ class AdministradorDeContactos:
 	def __init__(self):
 		self.__serializadora = Datos.Persistencia.Serializadora.Serializadora()
 
-	def CargarDatosDesdeArchivo(self):
+	def __CargarDatosDesdeArchivo(self):
 		self.__contactos = self.__serializadora.leerArchivoDeDatos()
 
 	def listar(self):
@@ -47,8 +47,3 @@ class AdministradorDeContactos:
 			if(contacto['Nombre'] == str(nombre)):
 				contactoEncontrado = contacto
 		return contactoEncontrado
-
-	def ordenar(self, listaDeContactos):
-		for contacto in sort(self.__contactos):
-			contacto['Nombre']
-
