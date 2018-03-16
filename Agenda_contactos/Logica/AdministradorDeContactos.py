@@ -16,7 +16,7 @@ class AdministradorDeContactos:
 	def agregar(self, contacto):
 		nuevoContacto = {
 			'Nombre': contacto.getNombre(), 
-			'Telefono': contacto.getTelefono()
+			'Telefono': contacto.getTelefono(),
 			'Nota': contacto.getNota()
 		}
 		self.__contactos.append(nuevoContacto)
@@ -25,7 +25,7 @@ class AdministradorDeContactos:
 	def editar(self, nombreContacto, infoActualizada):
 		contactoActualizado = {
 			'Nombre': infoActualizada.getNombre(), 
-			'Telefono': infoActualizada.getTelefono()
+			'Telefono': infoActualizada.getTelefono(),
 			'Nota': infoActualizada.getNota()
 		}
 		for contacto in self.contactos:
