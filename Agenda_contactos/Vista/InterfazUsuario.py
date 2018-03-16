@@ -106,7 +106,8 @@ class InterfazUsuario:
 		try:
 			nombre = raw_input("Ingrese nombre >> ")
 			telefono = raw_input("Ingrese telefono >> ")
-			contacto = Datos.Entidades.Contacto.Contacto(nombre, telefono)
+			nota = raw_input("Nota >> ")
+			contacto = Datos.Entidades.Contacto.Contacto(nombre, telefono, nota)
 			return contacto
 		except Exception:
 			print "Error de ingreso de datos del contacto."

@@ -17,6 +17,7 @@ class AdministradorDeContactos:
 		nuevoContacto = {
 			'Nombre': contacto.getNombre(), 
 			'Telefono': contacto.getTelefono()
+			'Nota': contacto.getNota()
 		}
 		self.__contactos.append(nuevoContacto)
 		self.__serializadora.guardarEnArchivo(self.__contactos)
@@ -25,6 +26,7 @@ class AdministradorDeContactos:
 		contactoActualizado = {
 			'Nombre': infoActualizada.getNombre(), 
 			'Telefono': infoActualizada.getTelefono()
+			'Nota': infoActualizada.getNota()
 		}
 		for contacto in self.contactos:
 			if (contacto['Nombre'] == str(nombreContacto)):
