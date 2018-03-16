@@ -13,7 +13,7 @@ class InterfazUsuario:
 		self.mostrarOpciones()
 		seleccion = self.ObtenerSeleccion()
 		self.ejecutarOpcionSeleccionada(seleccion)
-	#Menu
+
 	def __mostrarOpciones(self):
 		print "----------------------------------------------"
 		print "-----------<  MENU PRINCIPAL  >---------------"
